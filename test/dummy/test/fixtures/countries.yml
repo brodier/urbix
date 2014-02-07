@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  a2code: MyString
+  a3code: MyString
+  num_code: 1
+  dial_code: 1
+
+two:
+  name: MyString
+  a2code: MyString
+  a3code: MyString
+  num_code: 1
+  dial_code: 1

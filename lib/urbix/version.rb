@@ -1,0 +1,3 @@
+module Urbix
+  VERSION = "0.0.1"
+end
