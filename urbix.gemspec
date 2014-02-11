@@ -7,11 +7,13 @@ require "urbix/version"
 Gem::Specification.new do |s|
   s.name        = "urbix"
   s.version     = Urbix::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Urbix."
-  s.description = "TODO: Description of Urbix."
+  s.authors     = ["Bernard Rodier"]
+  s.email       = ["bernard.rodier@gmail.com"]
+  s.homepage    = "http://github.com/brodier/urbix.git"
+  s.summary     = "Rails extention to provide usefull tools to manipulate model belong_to others"
+  s.description = "Urbix provide act_as_view methods that will provide extention attribute 
+  on model with all its belongs_to relation. It also provide helper for building form with 
+  input helper based on these relation, query filters and other usefull methods"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
