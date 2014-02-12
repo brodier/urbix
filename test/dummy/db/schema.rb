@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207165937) do
+ActiveRecord::Schema.define(version: 20140212170008) do
 
   create_table "addresses", force: true do |t|
     t.string   "address"
@@ -49,5 +49,16 @@ ActiveRecord::Schema.define(version: 20140207165937) do
 
   add_index "localities", ["city_id"], name: "index_localities_on_city_id"
   add_index "localities", ["country_id"], name: "index_localities_on_country_id"
+
+  create_table "mails", force: true do |t|
+    t.text     "content"
+    t.integer  "exp_id"
+    t.integer  "dst_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mails", ["dst_id"], name: "index_mails_on_dst_id"
+  add_index "mails", ["exp_id"], name: "index_mails_on_exp_id"
 
 end
