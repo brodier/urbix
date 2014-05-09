@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140212170008) do
 
   create_table "addresses", force: true do |t|
     t.string   "address"
-    t.integer  "locality_id"
+    t.integer  "locality_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20140212170008) do
   create_table "localities", force: true do |t|
     t.string   "name"
     t.string   "zip"
-    t.integer  "city_id"
-    t.integer  "country_id"
+    t.integer  "city_id",    null: false
+    t.integer  "country_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20140212170008) do
 
   create_table "mails", force: true do |t|
     t.text     "content"
-    t.integer  "exp_id"
-    t.integer  "dst_id"
+    t.integer  "exp_id",     null: false
+    t.integer  "dst_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

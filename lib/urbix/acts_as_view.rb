@@ -33,7 +33,6 @@ module Urbix
           ref_bl_list(belongs_list) 
           belongs_list.pop
         end
-
       end
       
       def join_clause
@@ -105,7 +104,7 @@ module Urbix
         # 1. call block to customise views attributes
         vr = ViewRelations.new(self)
         yield vr if block_given?
-        sc = Mail.columns_hash.keys.collect{|col| "#{self.table_name}.#{col}"}
+        sc = self.columns_hash.keys.collect{|col| "#{self.table_name}.#{col}"}
         sc << vr.select_clause unless vr.select_clause.empty?
         fc = vr.from_clause
         wc = vr.join_clause

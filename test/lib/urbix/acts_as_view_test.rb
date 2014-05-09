@@ -41,8 +41,8 @@ class ActsAsViewTest < ActiveSupport::TestCase
   end
   
   test "Address View Method" do
-    assert_equal Address.view.first.attributes.keys,  ["id", "address", "locality_id", 
-    "city", "country"]
+    assert_equal Address.view.first.attributes.keys.sort,  ["id", "address", "locality_id", 
+    "city", "country", "created_at", "updated_at"].sort
   end
   
 end
