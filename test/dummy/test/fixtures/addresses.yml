@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  address: MyString
-  locality_id: 
+  address: '1 Rue du Test'
+  locality: ville
 
 two:
-  address: MyString
-  locality_id: 
+  address: '2 chemin des recettes'
+  locality: cedex

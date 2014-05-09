@@ -87,7 +87,7 @@ module Urbix
         ref_klass = klass
         belongs_list[0...-1].each{|bl_rel|
           if ref_klass.reflections[bl_rel].nil?
-            Logger.error "Failed to acts_as_view on class for #{name} attributes : 
+            Logger.error "Failed to acts_as_view on class for #{klass} attributes : 
             Undefined belongs_to relation #{bl_rel} on #{ref_klass}"
           else
             ref_klass = ref_klass.reflections[bl_rel].klass
@@ -101,18 +101,20 @@ module Urbix
     module ClassMethods
       
       def acts_as_view(options = {})
+        Logger.debug "ActsAsView on #{self}"
         # 1. call block to customise views attributes
         vr = ViewRelations.new(self)
         yield vr if block_given?
-        puts "#{self}"
-        self.class_variable_set(:@@_View__Relations,vr)
+        sc = Mail.columns_hash.keys.collect{|col| "#{self.table_name}.#{col}"}
+        sc << vr.select_clause unless vr.select_clause.empty?
+        fc = vr.from_clause
+        wc = vr.join_clause
+        self.class_variable_set(:@@_View__Relations,[sc,fc,wc])
         class_eval do
           def self.view
             # View method return ActiveRecord Relation to retrieve view element in one request
-            vr = self.class_variable_get(:@@_View__Relations)
-            select_columns = Mail.columns_hash.keys.collect{|col| "#{self.table_name}.#{col}"}
-            select_columns << vr.select_clause unless vr.select_clause.empty?
-            select(select_columns.join(', ')).from(vr.from_clause).where(vr.join_clause)
+            sc,fc,wc = self.class_variable_get(:@@_View__Relations)
+            select(sc).from(fc).where(wc)
           end
         end
       end

@@ -5,6 +5,6 @@ class Mail < ActiveRecord::Base
     rel.add :exp_city, [:exp,:locality,:city,:name]
     rel.add :exp_country, [:exp,:locality,:country,:name]
     rel.add :dst_city, [:dst,:locality,:city,:name]
-    rel.add :dst_city, [:dst,:locality,:country,:name]
+    rel.add :dst_country, [:dst,:locality,:country,:name]
   end
 end

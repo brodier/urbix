@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  content: MyText
-  exp_id: 
-  dst_id: 
+demande:
+  content: Ceci est le premier message 
+  exp: one
+  dst: two
 
-two:
-  content: MyText
-  exp_id: 
-  dst_id: 
+reponse:
+  content: Voici la réponse au premier message
+  exp: two
+  dst: one

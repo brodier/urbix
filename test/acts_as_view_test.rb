@@ -2,12 +2,14 @@
  
 require 'test_helper'
  
-class ActsAsViewTest < MiniTest::Unit::TestCase 
-  def test_an_address_as_a_view
+class ActsAsViewTest < ActiveSupport::TestCase
+  fixtures :all
+  
+  test "Address respond to view" do
     assert_respond_to Address,:view
   end
   
-  def test_view_relations_class
+  test "View Relations Class on Mail and Address model" do
     vr = Urbix::ActsAsView::ViewRelations.new(Mail)
     vr.add(:exp_city,[:exp, :locality,:city,:name])
     vr.add(:exp_country,[:exp, :locality,:country,:name])
@@ -22,4 +24,25 @@ class ActsAsViewTest < MiniTest::Unit::TestCase
       "localities_1.city_id=cities_1.id", "localities_1.country_id=countries_1.id", "mails.dst_id=addresses_1.id", 
       "mails.exp_id=addresses.id"].sort, vr.join_clause.split(' and ').sort
   end
+  
+  test "Mail View method" do
+    # view should return same record
+    assert_equal Mail.all.collect{|m| m.content}.sort,Mail.view.collect{|m| m.content}.sort
+    # Check view attributes
+    assert_equal Mail.view.first.attributes.keys,  ["id", "content", "exp_id", 
+    "dst_id", "created_at", "updated_at", "exp_city", "exp_country", "dst_city",
+    "dst_country"]
+    assert_equal Mail.view.collect{|m| 
+      [m.exp_city,m.exp_country,m.dst_city,m.dst_country]
+    }.sort , Mail.all.collect{|m| 
+      [ m.exp.locality.city.name,m.exp.locality.country.name,
+        m.dst.locality.city.name,m.dst.locality.country.name]
+    }.sort
+  end
+  
+  test "Address View Method" do
+    assert_equal Address.view.first.attributes.keys,  ["id", "address", "locality_id", 
+    "city", "country"]
+  end
+  
 end

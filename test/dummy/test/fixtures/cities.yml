@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
+ville_du_centre:
+  name: Ville du Centre 
 
-two:
-  name: MyString
+bord_du_pays:
+  name: Bord du Pays

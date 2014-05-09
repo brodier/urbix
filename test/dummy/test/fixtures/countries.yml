@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  a2code: MyString
-  a3code: MyString
-  num_code: 1
-  dial_code: 1
+testing_land:
+  name: Testingland 
+  a2code: TL
+  a3code: TST
+  num_code: 999
+  dial_code: 77
 
-two:
-  name: MyString
-  a2code: MyString
-  a3code: MyString
-  num_code: 1
-  dial_code: 1
+other_country:
+  name: Othercountry
+  a2code: OC
+  a3code: OTC
+  num_code: 777
+  dial_code: 99

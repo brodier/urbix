@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  zip: MyString
-  city_id: 
-  country_id: 
+ville:
+  name: Ville du Centre
+  zip: 99000
+  city: ville_du_centre
+  country: testing_land
 
-two:
-  name: MyString
-  zip: MyString
-  city_id: 
-  country_id: 
+cedex:
+  name: Ville CEDEX
+  zip: 99321
+  city: ville_du_centre
+  country: testing_land
