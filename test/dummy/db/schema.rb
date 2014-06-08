@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140212170008) do
   add_index "localities", ["city_id"], name: "index_localities_on_city_id"
   add_index "localities", ["country_id"], name: "index_localities_on_country_id"
 
-  create_table "mails", force: true do |t|
+  create_table "postal_mails", force: true do |t|
     t.text     "content"
     t.integer  "exp_id",     null: false
     t.integer  "dst_id",     null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140212170008) do
     t.datetime "updated_at"
   end
 
-  add_index "mails", ["dst_id"], name: "index_mails_on_dst_id"
-  add_index "mails", ["exp_id"], name: "index_mails_on_exp_id"
+  add_index "postal_mails", ["dst_id"], name: "index_postal_mails_on_dst_id"
+  add_index "postal_mails", ["exp_id"], name: "index_postal_mails_on_exp_id"
 
 end

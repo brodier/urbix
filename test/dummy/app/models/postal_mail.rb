@@ -1,4 +1,4 @@
-class Mail < ActiveRecord::Base
+class PostalMail < ActiveRecord::Base
   belongs_to :exp, class_name: "Address"
   belongs_to :dst, class_name: "Address"
   acts_as_view do |rel|
